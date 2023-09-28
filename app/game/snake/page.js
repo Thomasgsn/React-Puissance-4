@@ -2,7 +2,7 @@ import react from 'react'
 import Link from "next/link";
 import './menu'
 
-const page = () => {
+const snake = () => {
 
     return (
         <div>
@@ -13,4 +13,4 @@ const page = () => {
 
 }
 
-export default page;
+export default snake;

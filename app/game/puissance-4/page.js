@@ -15,7 +15,7 @@ const puissance4 = () => {
                     <div className="text-center underline text-3xl">Puissance 4</div>
                     <div>
 
-                        <table className="mt-8 scale" id="tableau">
+                        <table className="mt-8 scale tableau" id="6x7">
                             <tbody>
                             <tr className="border border-neutral-700 h-24">
                                 <td className="border border-neutral-700 w-24"></td>
@@ -73,6 +73,39 @@ const puissance4 = () => {
                             </tr>
                             </tbody>
                         </table>
+                        <table className="mt-8 scale tableau" id="4x5">
+                            <tbody>
+                            <tr className="border border-neutral-700 h-24">
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                            </tr>
+                            <tr className="border border-neutral-700 h-24">
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                            </tr>
+                            <tr className="border border-neutral-700 h-24">
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                            </tr>
+                            <tr className="border border-neutral-700 h-24">
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                                <td className="border border-neutral-700 w-24"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>
