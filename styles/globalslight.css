@@ -45,6 +45,7 @@ body {
 #tableau {
     animation: tableau 1.5s;
     animation-timing-function: ease-out;
+    transform: scale(.8);
 }
 
 @keyframes tableau {
@@ -55,7 +56,7 @@ body {
         transform: translateX(0vh) scale(.7);
     }
     90% {
-        transform: scale(.9);
+        transform: scale(.85);
     }
     100% {
         transform: scale(.8);

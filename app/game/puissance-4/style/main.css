@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', serif;
+    font-size: 30px;
+    transition: all .3s ease-out;
+    color: #c6ccde;
+}
+
+.jeton {
+    width: 100px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.jetons {
+    justify-content: center;
+    display: flex;
+    background-color: #404258;
+}
+
+#title {
+    text-align: center;
+    text-decoration: overline;
+    padding-top: 25px;
+    font-size: xxx-large;
+    padding-bottom: 20px;
+    background-color: #404258;
+}
+
+#joueur {
+    justify-content: center;
+    display: flex;
+    padding-top: 10px;
+    background-color: #404258;
+}
+
+#joueur h4 {
+    margin-right: 25px;
+    margin-left: 25px;
+    padding-bottom: 30px;
+}
+
+#tuto {
+    font-size: large;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #50577A;
+}
+
+.buttons {
+    background-color: #50577A;
+    overflow: hidden;
+}
+
+.PlayButton {
+    justify-content: center;
+    display: flex;
+    height: 10px;
+}
+
+.PlayButton button {
+    position: absolute;
+    background-color: #474E68;
+    border: solid 0 #3a3f54;
+    font-size: x-large;
+    height: 60px;
+    width: 100px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.PlayButton button:hover {
+    background-color: #474E68;
+    border: solid 3px #3a3f54;
+}
+
+.rest {
+    background-color: #474E68;
+    height: 20vh;
+}
+
+.new-game {
+    text-align: center;
+}
+
+#newGame {
+    background-color: #474E68;
+    border: solid 0 #3a3f54;
+    font-size: x-large;
+    height: 80px;
+    width: 215px;
+    border-radius: 10px;
+    text-align: center;
+    transform: translate(0, 120px);
+}
+
+#newGame:hover {
+    background-color: #474E68;
+    border: solid 3px #3a3f54;
+}
+
+.EventClick-btn {
+    padding-bottom: 720px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#contenu {
+    background-color: #474E68;
+    height: 0;
+    width: 100%;
+}
+
+table {
+    transform: translate(0, 155px);
+    background-color: #474E68;
+    margin: auto;
+    border: 2px solid #474E68;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+td {
+    margin: auto;
+    border: 1px solid #474E68;
+    width: 75px;
+    text-align: center;
+    border-radius: 10%;
+    background-color: #6B728E;
+}
+
+
+td:hover {
+    background-color: #474E68;
+
+
+}
+
+
+tr {
+    margin: auto;
+    border: 1px solid rgb(54, 243, 7);
+    height: 75px;
+    background-color: aliceblue;
+}
+
+.player {
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    transform: translate(0px, 6px);
+}
+
+#container {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#vainqueur {
+    text-align: center;
+    padding-top: 190px;
+}
+
+.newGameplus {
+    transform: translate(0, 465px);
+}
+
+footer {
+    text-align: center;
+    transform: translate(0, 12px);
+}
+
+footer p {
+    font-size: x-large;
+    letter-spacing: -1px;
+}
+
+.social-media img {
+    width: 4vh;
+    height: auto;
+}
+
+
+footer img:hover {
+    transform: translate(0, -3px);
+}
+
+
+.scoreboard {
+    background-color: #404258;
+}
+
+.sc_b {
+    display: flex;
+    justify-content: center;
+    width: 10vh;
+    height: 10vh;
+}
+
+.score {
+    justify-content: center;
+    gap: 15vh;
+    display: flex;
+}
+
+.butt {
+    display: flex;
+    justify-content: center;
+    gap: 5vh;
+    padding-bottom: 5vh;
+}
+
+.sb_button {
+    background-color: #474E68;
+    border: solid 2px #3a3f54;
+    width: 35px;
+    height: 45px;
+    border-radius: 3px;
+    justify-content: center;
+}
+
+.sb_button:hover {
+    background-color: #424860;
+    border: solid 2px #2b2c3d;
+}
+
+#reset_btn {
+    width: 10vh;
+    height: 5vh;
+    font-size: medium;
+    background-color: #474E68;
+    border: solid 2px #3a3f54;
+}
+
+#cross {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    margin-top: -1.5vh;
+    opacity: 0;
+}
+
+#hovertext {
+    font-size: small;
+    margin-left: 5vh;
+    display: none;
+    opacity: .5;
+}
+
+#cross:hover {
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+#cross:hover #hovertext {
+    display: block;
+}
+
+.mention {
+    padding-left: 15px;
+}
+
+.titre {
+    font-size: large;
+}
+
+.texte {
+    font-size: small;
+    text-align: left;
+    padding: 30px 150px 30px 30px;
+    background-color: #50577A;
+}
+
+@media only screen and (max-width: 600px) {
+    player {
+        width: 20px;
+        height: 20px;
+    }
+}
