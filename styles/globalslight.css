@@ -41,24 +41,3 @@ body {
 .div-jeu:hover .img-jeu {
     transform: scale(105%);
 }
-
-#tableau {
-    animation: tableau 1.5s;
-    animation-timing-function: ease-out;
-    transform: scale(.8);
-}
-
-@keyframes tableau {
-    0% {
-        transform: translateX(-120vh) scale(.7);
-    }
-    70% {
-        transform: translateX(0vh) scale(.7);
-    }
-    90% {
-        transform: scale(.85);
-    }
-    100% {
-        transform: scale(.8);
-    }
-}
