@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const puissance4 = () => {
 
-
     return (
         <>
             <div className="flex justify-center">
