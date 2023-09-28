@@ -21,7 +21,7 @@ function Welcome(props) {
                 <div
                     className="btn hover:cursor-pointer bg-emerald-300 p-3 rounded-lg absolute top-5 right-5 flex justify-center gap-3">
                     <User color="black" size={24}/>
-                    <p>Se connecter !</p>
+                    <p>Se connecter</p>
                 </div>
             </Link>
         )
