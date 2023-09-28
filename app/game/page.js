@@ -1,21 +1,29 @@
 "use client"
 import Image from 'next/image';
 import Link from "next/link";
+import {User} from 'lucide-react';
 
 function Welcome(props) {
 
-
-    if (props.name != null) {
+    if (props.username != null) {
         return (
-            <div className="absolute top-5 right-5">
-                <p>Bonjour, {props.name}</p>
-            </div>
+            <Link href="/user">
+                <div
+                    className="btn hover:cursor-pointer bg-emerald-300 p-3 rounded-lg absolute top-5 right-5 flex justify-center gap-2">
+                    <User color="black" size={24}/>
+                    <p>Bonjour, {props.name}</p>
+                </div>
+            </Link>
         )
     } else {
         return (
-            <div className="absolute top-5 right-5">
-                <p>Veuillez saisir votre pseudo !</p>
-            </div>
+            <Link href="/user/connect">
+                <div
+                    className="btn hover:cursor-pointer bg-emerald-300 p-3 rounded-lg absolute top-5 right-5 flex justify-center gap-3">
+                    <User color="black" size={24}/>
+                    <p>Se connecter !</p>
+                </div>
+            </Link>
         )
     }
 }
@@ -23,11 +31,8 @@ function Welcome(props) {
 export default function Home() {
     return (
         <>
-            <div id="welcome">
-                <Welcome/>
-            </div>
+            <Welcome/>
 
-            <div id="connect"></div>
 
             <main className="flex min-h-screen flex-col items-center w-full">
                 <Image
