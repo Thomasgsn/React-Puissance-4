@@ -1,14 +1,34 @@
 "use client"
 import Image from 'next/image';
 import Link from "next/link";
-import theme from "../components/theme/page";
 
 function Welcome(props) {
-    return <h1>Bonjour, {props.name}</h1>
+
+
+    if (props.name != null) {
+        return (
+            <div className="absolute top-5 right-5">
+                <p>Bonjour, {props.name}</p>
+            </div>
+        )
+    } else {
+        return (
+            <div className="absolute top-5 right-5">
+                <p>Veuillez saisir votre pseudo !</p>
+            </div>
+        )
+    }
 }
 
 export default function Home() {
-    return (<>
+    return (
+        <>
+            <div id="welcome">
+                <Welcome/>
+            </div>
+
+            <div id="connect"></div>
+
             <main className="flex min-h-screen flex-col items-center w-full">
                 <Image
                     src="/logo.png"
@@ -19,12 +39,6 @@ export default function Home() {
                     priority
                 />
                 <h1 className={`mt-5 text-xl mb-3 font-bold italic drop-shadow-[0_0px_25px_rgba(5,170,159,100)]`}>GAME</h1>
-
-
-
-                <theme name="Sara" />
-
-
 
                 <div
                     className="flex gap-2 content-center translate-y-5">

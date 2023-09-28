@@ -41,3 +41,9 @@ body {
 .div-jeu:hover .img-jeu {
     transform: scale(105%);
 }
+
+#connect {
+    width: 5vh;
+    height: 5vh;
+    background-color: crimson;
+}
