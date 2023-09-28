@@ -8,7 +8,7 @@ const snake = () => {
                 href="../game">
                 <div className="font-bold text-3xl text-slate-50">Retour</div>
             </Link>
-            <div>SnakeE</div>
+            <div>Snake</div>
         </>
     )
 }
