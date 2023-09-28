@@ -3,6 +3,10 @@ import Image from 'next/image';
 import Link from "next/link";
 import theme from "../components/theme/page";
 
+function Welcome(props) {
+    return <h1>Bonjour, {props.name}</h1>
+}
+
 export default function Home() {
     return (<>
             <main className="flex min-h-screen flex-col items-center w-full">
@@ -15,6 +19,13 @@ export default function Home() {
                     priority
                 />
                 <h1 className={`mt-5 text-xl mb-3 font-bold italic drop-shadow-[0_0px_25px_rgba(5,170,159,100)]`}>GAME</h1>
+
+
+
+                <theme name="Sara" />
+
+
+
                 <div
                     className="flex gap-2 content-center translate-y-5">
                     <Link href="/game/puissance-4">
@@ -109,7 +120,6 @@ export default function Home() {
                         </div>
                     </Link>
                 </div>
-                <theme/>
             </main>
         </>
     )

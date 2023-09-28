@@ -14,6 +14,7 @@ const puissance4 = () => {
                     </Link>
                     <div className="text-center underline text-3xl">Puissance 4</div>
                     <div>
+
                         <table className="mt-8 scale" id="tableau">
                             <tbody>
                             <tr className="border border-neutral-700 h-24">
