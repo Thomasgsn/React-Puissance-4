@@ -1,12 +1,11 @@
 #tableau {
-    animation: tableau 1.5s;
-    animation-timing-function: ease-out;
+    animation: tableau 1.5s .5s ease-in-out;
     transform: scale(.8);
 }
 
 @keyframes tableau {
     0% {
-        transform: translateX(-120vh) scale(.7);
+        transform: translateX(-200%) scale(.7);
     }
     70% {
         transform: translateX(0vh) scale(.7);
