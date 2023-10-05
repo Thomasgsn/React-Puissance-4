@@ -19,7 +19,11 @@ const puissance4 = () => {
                     <div className="text-center underline text-3xl mb-8">Puissance 4</div>
 
 
-                    <div>
+                    <button id='playBTN'
+                        className="font-semibold transition hover:bg-amber-200 bg-amber-100 w-32 border-t-neutral-500 text-xl rounded-lg">Jouer
+                    </button>
+
+                    <div id="settings">
                         <div className="flex justify-between gap-2">
 
 
@@ -68,7 +72,7 @@ export default puissance4
 
 import react from 'react'
 import Link from "next/link";
-import './menu'
+import './style/menu'
 
 const snake = () => {
 
