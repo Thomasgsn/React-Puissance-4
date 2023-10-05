@@ -13,7 +13,7 @@ const connect = () => {
                     <span className="font-semibold">Mot de passe :</span>
                     <input className="w-200 h-100 bg-emerald-300 mb-2" type="text" name="password"/>
 
-                    <Link href="../user"><h1>Se connecter</h1></Link>
+                    <Link href="../game"><h1>Se connecter</h1></Link>
 
                 </form>
             </div>
