@@ -1,9 +1,5 @@
-'use client';
-import React, {useState} from "react";
-import styled from "styled-components";
-import {
-    validateGoogleFontFunctionCall
-} from "next/dist/compiled/@next/font/dist/google/validate-google-font-function-call";
+import React, {useState} from 'react';
+import styled from 'styled-components';
 
 const Button = styled.button`
   background-color: green;
@@ -16,7 +12,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    opacity: .8;
+    opacity: 0.8;
     box-shadow: 0 2px 2px lightgray;
   }
 
@@ -27,7 +23,7 @@ const Button = styled.button`
 `;
 
 const ButtonToggle = styled(Button)`
-  transition: all .3s;
+  transition: all 0.3s;
   opacity: 0.3;
   ${({active}) =>
           active &&
@@ -36,66 +32,64 @@ const ButtonToggle = styled(Button)`
   `}
 `;
 
-const typesTab = ["4 x 5", "6 x 7"];
+
 function ParamTab() {
-    const [active, setActive] = useState(typesTab[0]);
-    allActive.push(active)
+
+    const typesTab = ["4 x 5", "6 x 7"];
+    const typeOp = ["1 v 1", "1 v Bots"];
+
+    const [activeTab, setActiveTab] = useState(typesTab[0]);
+    const [activeOp, setActiveOp] = useState(typeOp[0]);
+    const [allActive, setAllActive] = useState([]);
+
+    const handleSetActiveTab = (type) => {
+        setActiveTab(type);
+    };
+
+    const handleSetActiveOp = (type) => {
+        setActiveOp(type);
+    };
+
+
     return (
         <>
+
+            <div className="flex justify-center gap-4">
+                <div className="text-lg text-center">
+                    Tableau de jeu :
+                    <p className="text-xl font-semibold"> {activeTab} </p>
+                </div>
+
+                <div className="text-lg text-center">
+                    Mode de jeu sélectionné :
+                    <p className="text-xl font-semibold"> {activeOp} </p>
+                </div>
+            </div>
 
             <div>
                 {typesTab.map((type) => (
-                    <ButtonToggle active={active === type} onClick={() => setActive(type)}>
+                    <ButtonToggle active={activeTab === type} onClick={() => handleSetActiveTab(type)}>
                         {type}
                     </ButtonToggle>
                 ))}
             </div>
 
-            <div className="text-lg"> Votre tableau de jeu sera de : <p className="text-xl font-semibold"> {active} </p>
-            </div>
-
-        </>
-    );
-}
-
-const typeOp = ["1 v 1", "1 v Bots"];
-
-function ParamOp() {
-    const [active, setActive] = useState(typeOp[0]);
-
-    return (
-        <>
             <div>
                 {typeOp.map((type) => (
-                    <ButtonToggle active={active === type} onClick={() => setActive(type)}>
+                    <ButtonToggle active={activeOp === type} onClick={() => handleSetActiveOp(type)}>
                         {type}
                     </ButtonToggle>
                 ))}
             </div>
-            <div className="text-lg"> Votre tableau de jeu sera de : <p className="text-xl font-semibold"> {active} </p>
-            </div>
+
         </>
     );
 }
-
-
-
-const allActive = [];
-function GetAllActive(){
-    return allActive;
-}
-
-console.log(GetAllActive())
-
-
-
 
 export default function Param() {
     return (
         <>
-
             <ParamTab/>
-            <ParamOp/>
         </>
     );
 }
