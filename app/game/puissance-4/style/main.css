@@ -19,6 +19,14 @@
     }
 }
 
-#settings {
-    display: none;
+.aaa {
+    height: 87vh;
+}
+
+.nnn {
+    width: 100vh;
+}
+
+.aaaaaaaa {
+    display: table-column;
 }

@@ -1,129 +1,101 @@
 'use client';
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-
-const theme = {
-    blue: {
-        default: "#3f51b5",
-        hover: "#283593"
-    },
-    pink: {
-        default: "#e91e63",
-        hover: "#ad1457"
-    }
-};
+import {
+    validateGoogleFontFunctionCall
+} from "next/dist/compiled/@next/font/dist/google/validate-google-font-function-call";
 
 const Button = styled.button`
-  background-color: ${(props) => theme[props.theme].default};
+  background-color: green;
+  font-size: 20px;
   color: white;
   padding: 5px 15px;
   border-radius: 5px;
   outline: 0;
-  text-transform: uppercase;
-  margin: 10px 0px;
+  margin: 20px 10px 10px 0;
   cursor: pointer;
-  box-shadow: 0px 2px 2px lightgray;
-  transition: ease background-color 250ms;
+
   &:hover {
-    background-color: ${(props) => theme[props.theme].hover};
+    opacity: .8;
+    box-shadow: 0 2px 2px lightgray;
   }
+
   &:disabled {
     cursor: default;
-    opacity: 0.7;
+    opacity: 0.3;
   }
 `;
 
-Button.defaultProps = {
-    theme: "blue"
-};
-
-function clickMe() {
-    alert("You clicked me!");
-}
-
 const ButtonToggle = styled(Button)`
-  opacity: 0.7;
-  ${({ active }) =>
-    active &&
-    `
+  transition: all .3s;
+  opacity: 0.3;
+  ${({active}) =>
+          active &&
+          `
     opacity: 1; 
   `}
 `;
 
-const Tab = styled.button`
-  padding: 10px 30px;
-  cursor: pointer;
-  opacity: 0.6;
-  background: white;
-  border: 0;
-  outline: 0;
-  border-bottom: 2px solid transparent;
-  transition: ease border-bottom 250ms;
-  ${({ active }) =>
-    active &&
-    `
-    border-bottom: 2px solid black;
-    opacity: 1;
-  `}
-`;
-
-function TabGroup() {
-    const [active, setActive] = useState(types[0]);
+const typesTab = ["4 x 5", "6 x 7"];
+function ParamTab() {
+    const [active, setActive] = useState(typesTab[0]);
+    allActive.push(active)
     return (
         <>
+
             <div>
-                {types.map((type) => (
-                    <Tab
-                        key={type}
-                        active={active === type}
-                        onClick={() => setActive(type)}
-                    >
+                {typesTab.map((type) => (
+                    <ButtonToggle active={active === type} onClick={() => setActive(type)}>
                         {type}
-                    </Tab>
+                    </ButtonToggle>
                 ))}
             </div>
-            <p />
-            <p> Your payment selection: {active} </p>
+
+            <div className="text-lg"> Votre tableau de jeu sera de : <p className="text-xl font-semibold"> {active} </p>
+            </div>
+
         </>
     );
 }
 
-const types = ["Cash", "Credit Card", "Bitcoin"];
+const typeOp = ["1 v 1", "1 v Bots"];
 
-function ToggleGroup() {
-    const [active, setActive] = useState(types[0]);
+function ParamOp() {
+    const [active, setActive] = useState(typeOp[0]);
+
     return (
-        <div>
-            {types.map((type) => (
-                <ButtonToggle active={active === type} onClick={() => setActive(type)}>
-                    {type}
-                </ButtonToggle>
-            ))}
-        </div>
+        <>
+            <div>
+                {typeOp.map((type) => (
+                    <ButtonToggle active={active === type} onClick={() => setActive(type)}>
+                        {type}
+                    </ButtonToggle>
+                ))}
+            </div>
+            <div className="text-lg"> Votre tableau de jeu sera de : <p className="text-xl font-semibold"> {active} </p>
+            </div>
+        </>
     );
 }
+
+
+
+const allActive = [];
+function GetAllActive(){
+    return allActive;
+}
+
+console.log(GetAllActive())
+
+
+
 
 export default function Param() {
     return (
         <>
-            <div>
-                <Button onClick={clickMe}>Button</Button>
-            </div>
-            <div>
-                <Button theme="pink" onClick={clickMe}>
-                    Pink theme
-                </Button>
-            </div>
-            <div>
-                <Button disabled onClick={clickMe}>
-                    Disabled
-                </Button>
-            </div>
-            <a href="https://react.school" target="_blank">
-                <Button>Link</Button>
-            </a>
-            <ToggleGroup />
-            <TabGroup />
+
+            <ParamTab/>
+            <ParamOp/>
         </>
     );
 }
