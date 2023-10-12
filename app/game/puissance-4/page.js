@@ -1,5 +1,7 @@
 import react from 'react'
 import Link from "next/link";
+import Param from "./param";
+
 
 const puissance4 = () => {
 
@@ -26,6 +28,8 @@ const puissance4 = () => {
                     <div id="settings">
                         <div className="flex justify-between gap-2">
 
+
+                            <Param />
 
                             <div className="border border-neutral-500 rounded-2xl p-8">
                                 <h1 className="text-center text-2xl mb-5 font-bold">Taille du tableau</h1>
@@ -66,33 +70,3 @@ const puissance4 = () => {
 }
 
 export default puissance4
-
-
-/*      SNAKE PARCE QU'ÉMILIEN EST TRES CON
-
-import react from 'react'
-import Link from "next/link";
-import './style/menu'
-
-const snake = () => {
-
-    return (
-         <>
-            <div className="flex justify-center">
-                <div className="inline w-full">
-                    <Link
-                        className="shadow-lg hover:bg-cyan-400 bg-teal-500 hover:shadow-black/20 transition ease-in-out scale-50 hover:scale-[.55] px-5 py-3 flex fixed rounded-full align-middle justify-center -right-2 top-0"
-                        href="../game">
-                        <div className="font-bold text-3xl text-slate-50">Retour</div>
-                    </Link>
-                    <div className="text-center underline text-3xl">Snake</div>
-                </div>
-            </div>
-        </>
-    );
-
-}
-
-export default snake;
-
- */
