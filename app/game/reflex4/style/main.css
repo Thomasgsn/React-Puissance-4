@@ -1,0 +1,22 @@
+
+.squarePlay {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 3vh;
+    background-color: #ff0000;
+    border: .5vh outset #be1717;
+}
+
+.greenSquare {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 3vh;
+    background-color: #b5d518;
+    border: .5vh outset #a2bc20;
+}
+
+.squareCenter {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(9rem);
+}

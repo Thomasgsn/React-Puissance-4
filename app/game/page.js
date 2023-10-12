@@ -138,6 +138,30 @@ export default function Home() {
                                 /></div>
                         </div>
                     </Link>
+
+                    <Link href="/game/reflex4">
+                        <div
+                            className="div-jeu text-center group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black/[.05] hover:bg-black/[.06] hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                            rel="noopener noreferrer">
+                            <h2 className={`text-lg mb-3  font-semibold`}>Reflex 4{' '}
+                                <span>
+                                </span>
+                            </h2>
+                            <p className={`text-sm m-0 max-w-[30ch] opacity-50`}>
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                Clique le plus rapidement sur le carré qui s'allume.
+                            </p>
+                            <div className="flex justify-center mt-7 mb-3 img-jeu">
+                                <Image
+                                    src="/reflex4.jpg"
+                                    alt="reflex 4"
+                                    className="rounded-lg"
+                                    width={100}
+                                    height={100}
+                                    priority
+                                /></div>
+                        </div>
+                    </Link>
                 </div>
             </main>
         </>

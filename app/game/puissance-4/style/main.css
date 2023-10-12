@@ -1,7 +1,6 @@
 .tableau {
     animation: tableau 1.5s .5s ease-in-out backwards;
     transform: scale(.8);
-    display : none
 }
 
 @keyframes tableau {
@@ -27,6 +26,6 @@
     width: 100vh;
 }
 
-.aaaaaaaa {
+#body {
     display: table-column;
 }
