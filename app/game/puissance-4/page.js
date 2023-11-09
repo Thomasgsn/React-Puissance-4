@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import Link from "next/link";
 import styled from 'styled-components';
-import Display from "./param";
+import Display from "./display";
 
 const puissance4 = () => {
 
@@ -16,7 +16,6 @@ const puissance4 = () => {
     return (
         <>
             <div id='body'>
-
                 <Link
                     className="shadow-lg hover:bg-cyan-400 bg-teal-500 hover:shadow-black/20 transition ease-in-out scale-50 hover:scale-[.55] px-5 py-3 flex fixed rounded-full align-middle justify-center -right-2 top-0"
                     href="../game">
