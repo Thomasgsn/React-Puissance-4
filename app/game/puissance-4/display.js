@@ -60,6 +60,7 @@ function DisplayP() {
         <div className="flex justify-center">
             <div className="border-black border p-4">
                 <div className="inline w-full">
+
                     <div className="flex justify-center gap-4">
                         <div className="text-lg text-center">
                             Tableau de jeu :
@@ -72,7 +73,8 @@ function DisplayP() {
                     </div>
                     <div>
                         {typesTab.map((type) => <ButtonToggle active={activeTab === type}
-                                                              onClick={() => handleSetActiveTab(type)}>
+                                                              onClick={() => handleSetActiveTab(type)}
+                                                              ref={buttonToggleRef}>
                             {type}
                         </ButtonToggle>)}
                     </div>
@@ -84,7 +86,8 @@ function DisplayP() {
                     </div>
                 </div>
             </div>
-            <div className="border-black border p-4">
+
+            <div className="border-black border w-[40rem] h-[35rem]">
                 <Tab></Tab>
             </div>
         </div>

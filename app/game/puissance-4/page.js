@@ -1,17 +1,43 @@
 'use client';
 import React, {useState} from 'react';
 import Link from "next/link";
-import styled from 'styled-components';
 import Display from "./display";
+import {forEachEntryModule} from "next/dist/build/webpack/utils";
 
 const puissance4 = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isParamVisible, setIsParamVisible] = useState(false);
 
-    const displayParam = () => {
+    const displayP = () => {
         setIsParamVisible(!isParamVisible);
     };
+
+    const Lessgui = () => {
+
+        return (<>
+
+            <table className="scale tableau">
+                <tr className="border border-neutral-700 h-28">
+                    <td onClick={Pion} className="border border-neutral-700 w-28">{isPion && <div className="rounded-[100%] bg-zinc-950 w-24 h-24"></div>}</td>
+                    <td onClick={Pion} className="border border-neutral-700 w-28">{isPion && <div className="rounded-[100%] bg-zinc-950 w-24 h-24"></div>}</td>
+                </tr>
+                <tr className="border border-neutral-700 h-28">
+                    <td onClick={Pion} className="border border-neutral-700 w-28">{isPion && <div className="rounded-[100%] bg-zinc-950 w-24 h-24"></div>}</td>
+                    <td onClick={Pion} className="border border-neutral-700 w-28">{isPion && <div className="rounded-[100%] bg-zinc-950 w-24 h-24"></div>}</td>
+                </tr>
+            </table>
+
+        </>)
+    }
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [isPion, setIsPion] = useState(false);
+
+    const Pion = () => {
+        setIsPion(!isPion);
+    };
+
 
     return (
         <>
@@ -23,11 +49,12 @@ const puissance4 = () => {
                 </Link>
 
                 <div className="text-center underline text-3xl mb-8">Puissance 4</div>
-                <button onClick={displayParam}
+                <button onClick={displayP}
                         className="font-semibold transition hover:bg-amber-200 bg-amber-100 w-32 border-t-neutral-500 text-xl rounded-lg">Jouer
                 </button>
-                            {isParamVisible && <Display/>}
+                {isParamVisible && <Display/>}
             </div>
+
         </>
     )
 }
