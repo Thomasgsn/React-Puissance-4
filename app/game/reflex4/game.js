@@ -80,7 +80,6 @@ const Game = () => {
     };
 
     useEffect(() => {
-        // Vous pouvez ajouter du code ici si nécessaire
     }, [squares, gameStarted]);
 
     useEffect(() => {

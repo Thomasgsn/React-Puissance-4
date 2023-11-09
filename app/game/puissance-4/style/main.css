@@ -1,31 +1,7 @@
-.tableau {
-    animation: tableau 1.5s .5s ease-in-out backwards;
-    transform: scale(.8);
-}
-
-@keyframes tableau {
-    0% {
-        transform: translateX(-300%) scale(.7);
-    }
-    70% {
-        transform: translateX(0vh) scale(.7);
-    }
-    90% {
-        transform: scale(.85);
-    }
-    100% {
-        transform: scale(.8);
-    }
-}
-
-.aaa {
-    height: 85vh;
-}
-
-.nnn {
-    width: 100vh;
-}
-
 #body {
     display: table-column;
+}
+
+.tableau {
+    transform: scale(.8);
 }

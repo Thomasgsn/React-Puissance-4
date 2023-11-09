@@ -4,7 +4,7 @@
     height: 20vh;
     border-radius: 3vh;
     background-color: #ff0000;
-    border: .5vh outset #be1717;
+    border: .5vh inset #be1717;
 }
 
 .greenSquare {

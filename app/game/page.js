@@ -153,7 +153,7 @@ export default function Home() {
                             </p>
                             <div className="flex justify-center mt-7 mb-3 img-jeu">
                                 <Image
-                                    src="/reflex4.jpg"
+                                    src="/reflex4.png"
                                     alt="reflex 4"
                                     className="rounded-lg"
                                     width={100}

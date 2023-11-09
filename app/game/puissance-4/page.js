@@ -1,10 +1,8 @@
 'use client';
-
 import React, {useState} from 'react';
 import Link from "next/link";
-import DisplayTab from "./tableau";
-import Param from "./param";
-
+import styled from 'styled-components';
+import Display from "./param";
 
 const puissance4 = () => {
 
@@ -29,24 +27,7 @@ const puissance4 = () => {
                 <button onClick={displayParam}
                         className="font-semibold transition hover:bg-amber-200 bg-amber-100 w-32 border-t-neutral-500 text-xl rounded-lg">Jouer
                 </button>
-
-                <div className="flex justify-center aaa">
-
-                    <div className="border-black border nnn">
-                        <div className="inline w-full">
-
-                            {isParamVisible && <Param/>}
-
-                        </div>
-                    </div>
-
-                    <div className="border-black border nnn">
-                        <DisplayTab/>
-                    </div>
-
-                </div>
-
-                <div className="flex justify-center"></div>
+                            {isParamVisible && <Display/>}
             </div>
         </>
     )

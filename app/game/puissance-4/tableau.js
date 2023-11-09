@@ -1,7 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import puissance4 from "./page";
-
 
 export const Six_sept = () => {
 
@@ -113,12 +110,4 @@ export const Quatre_cinq = () => {
         </>
     )
 }
-
-const defaultaa = () => {
-
-    return (<></>)
-}
-
-export default defaultaa
-
 
