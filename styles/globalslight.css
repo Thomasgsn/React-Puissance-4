@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply max-w-2xl mx-auto flex justify-center;
+        @apply max-w-2xl;
     }
 }
 
@@ -14,36 +14,19 @@
 }
 
 :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 0, 0, 0;
+
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --foreground-rgb: 0, 0, 0;
-        --background-start-rgb: 255, 255, 255;
-        --background-end-rgb: 255, 255, 255;
+
     }
 }
 
 body {
-    height: 100vh;
-    min-width: 100%;
-    padding: 0;
-    background: linear-gradient(to bottom, #ffecd2 0%, #fcb69f 100%) no-repeat;
+    background-color: #efb5a3;
 }
 
 .img-jeu {
     transition: transform .2s ease-out;
-}
-
-.div-jeu:hover .img-jeu {
-    transform: scale(105%);
-}
-
-#connect {
-    width: 5vh;
-    height: 5vh;
-    background-color: crimson;
 }

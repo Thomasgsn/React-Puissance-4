@@ -3,16 +3,16 @@
     width: 20vh;
     height: 20vh;
     border-radius: 3vh;
-    background-color: #ff0000;
-    border: .5vh inset #be1717;
+    background-color: #f57e7e;
+    border: .5vh inset #c96666;
 }
 
 .greenSquare {
     width: 20vh;
     height: 20vh;
     border-radius: 3vh;
-    background-color: #b5d518;
-    border: .5vh outset #a2bc20;
+    background-color: rgb(20 184 166);
+    border: .5vh outset #0f8679;
 }
 
 .squareCenter {

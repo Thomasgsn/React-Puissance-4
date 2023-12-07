@@ -2,55 +2,39 @@
 import Image from 'next/image';
 import Link from "next/link";
 import {User} from 'lucide-react';
+import styled from "styled-components";
+import React from "react";
 
-function Welcome(props) {
+const GameSelector = styled.div`
+  color: aqua;
+  background-color: #f57e7e;
+  text-align: left;
+  padding: 1.25rem 1rem;
+  width: 17rem;
+  height: 17rem;
+  border-radius: .5rem;
+  transition: all .3s cubic-bezier(0, 0.59, 0.33, 0.87);
+  border: .25rem solid #2f5e6d;
 
-    if (props.username != null) {
-        return (
-            <Link href="/user">
-                <div
-                    className="btn hover:cursor-pointer bg-emerald-300 p-3 rounded-lg absolute top-5 right-5 flex justify-center gap-2">
-                    <User color="black" size={24}/>
-                    <p>Bonjour, {props.name}</p>
-                </div>
-            </Link>
-        )
-    } else {
-        return (
-            <Link href="/user/connect">
-                <div
-                    className="btn hover:cursor-pointer bg-emerald-300 p-3 rounded-lg absolute top-5 right-5 flex justify-center gap-3">
-                    <User color="black" size={24}/>
-                    <p>Se connecter !</p>
-                </div>
-            </Link>
-        )
-    }
-}
+
+  &:hover {
+    background-color: #2f5e6d;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+  }
+
+`
 
 export default function Home() {
     return (
         <>
-            <Welcome/>
+            <h1 className={`mt-5 text-xl mb-3 font-bold italic drop-shadow-[0_0px_25px_rgba(5,170,159,100)]`}>GAME</h1>
 
 
-            <main className="flex min-h-screen flex-col items-center w-full">
-                <Image
-                    src="/logo.png"
-                    alt="Abstract Blow Logo"
-                    className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-                    width={300}
-                    height={72}
-                    priority
-                />
-                <h1 className={`mt-5 text-xl mb-3 font-bold italic drop-shadow-[0_0px_25px_rgba(5,170,159,100)]`}>GAME</h1>
-
-                <div
-                    className="flex gap-2 content-center translate-y-5">
+                <div className="w-screen flex gap-5 justify-center">
                     <Link href="/game/puissance-4">
-                        <div
-                            className="div-jeu text-center group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black/[.05] hover:bg-black/[.06] hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                            rel="noopener noreferrer">
+                        <GameSelector>
                             <h2 className={`text-lg mb-3  font-semibold`}>Puissance 4{' '}
                                 <span>
                                 </span>
@@ -67,13 +51,13 @@ export default function Home() {
                                     width={100}
                                     height={100}
                                     priority
-                                /></div>
-                        </div>
+                                />
+                            </div>
+                        </GameSelector>
                     </Link>
+
                     <Link href="/game/tic_tac_toe">
-                        <div
-                            className="div-jeu text-center group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black/[.05] hover:bg-black/[.06] hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                            rel="noopener noreferrer">
+                        <GameSelector>
                             <h2 className={`text-lg mb-3  font-semibold`}>Tic Tac Toe{' '}
                                 <span>
                                 </span>
@@ -91,12 +75,11 @@ export default function Home() {
                                     height={100}
                                     priority
                                 /></div>
-                        </div>
+                        </GameSelector>
                     </Link>
+
                     <Link href="/game/snake">
-                        <div
-                            className="div-jeu text-center group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black/[.05] hover:bg-black/[.06] hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                            rel="noopener noreferrer">
+                        <GameSelector>
                             <h2 className={`text-lg mb-3  font-semibold`}>Snake{' '}
                                 <span>
                                 </span>
@@ -113,12 +96,11 @@ export default function Home() {
                                     height={100}
                                     priority
                                 /></div>
-                        </div>
+                        </GameSelector>
                     </Link>
+
                     <Link href="/game/casse_brique">
-                        <div
-                            className="div-jeu text-center group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black/[.05] hover:bg-black/[.06] hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                            rel="noopener noreferrer">
+                        <GameSelector>
                             <h2 className={`text-lg mb-3 font-semibold`}>Casse brique{' '}
                                 <span>
                                 </span>
@@ -136,13 +118,11 @@ export default function Home() {
                                     height={100}
                                     priority
                                 /></div>
-                        </div>
+                        </GameSelector>
                     </Link>
 
                     <Link href="/game/reflex4">
-                        <div
-                            className="div-jeu text-center group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black/[.05] hover:bg-black/[.06] hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                            rel="noopener noreferrer">
+                        <GameSelector>
                             <h2 className={`text-lg mb-3  font-semibold`}>Reflex 4{' '}
                                 <span>
                                 </span>
@@ -160,10 +140,9 @@ export default function Home() {
                                     height={100}
                                     priority
                                 /></div>
-                        </div>
+                        </GameSelector>
                     </Link>
                 </div>
-            </main>
         </>
     )
 }

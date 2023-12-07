@@ -1,24 +1,35 @@
 'use client';
 import React, {useEffect, useState} from 'react';
+import {Settings} from 'lucide-react';
 import styled from 'styled-components';
+import Display from "../puissance-4/display";
 
 const Button = styled.button`
-  background-color: green;
+  background-color: #f57e7e;
   font-size: 20px;
   color: white;
   padding: 5px 15px;
-  border-radius: 5px;
   outline: 0;
   margin: 20px 10px 10px 0;
   cursor: pointer;
+  transition: all .3s cubic-bezier(0, 0.59, 0.33, 0.87);
 
   &:hover {
     opacity: 0.8;
-    box-shadow: 0 2px 2px lightgray;
+    background-color: #2f5e6d;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 01);
+    box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
   }
 
   &:disabled {
     cursor: default;
+    opacity: 0.3;
+  }
+
+  &:disabled:hover {
+    cursor: not-allowed;
+    background-color: #be1717;
     opacity: 0.3;
   }
 `;
@@ -34,12 +45,18 @@ const ButtonToggle = styled(Button)`
 const Game = () => {
     const typesTime = [5, 10, 15, 20];
     const [activeTime, setActiveTime] = useState(typesTime[0]);
+    const [timeRemaining, setTimeRemaining] = useState(activeTime);
+
     const [squares, setSquares] = useState(Array(4).fill(false));
-    const [score, setScore] = useState(0);
+
+    const [scoreA, setScoreA] = useState(0);
+    const [bestscore, setBestscore] = useState(0);
+    const [previousscore, setPreviousscore] = useState(0);
+
     const [gameStarted, setGameStarted] = useState(false);
     const [lastClickedSquare, setLastClickedSquare] = useState(null);
-    const [timeRemaining, setTimeRemaining] = useState(activeTime);
     const [gameOver, setGameOver] = useState(false);
+
     const [isDisabled, setDisabled] = useState(false)
 
     const getRandomSquare = () => Math.floor(Math.random() * 4);
@@ -62,7 +79,8 @@ const Game = () => {
         const newSquares = Array(4).fill(false);
         newSquares[randomIndex] = true;
         setSquares(newSquares);
-        setScore(0); // Réinitialise le score
+
+        setScoreA(0); // Réinitialise le score actuel
         setLastClickedSquare(randomIndex);
     };
 
@@ -72,11 +90,11 @@ const Game = () => {
             const randomIndex = getNewRandomSquare(lastClickedSquare);
             newSquares[randomIndex] = true;
             setSquares(newSquares);
-            setScore(score + 1);
+            setScoreA(scoreA + 1);
             setLastClickedSquare(randomIndex);
         } else if (!squares[index] && !gameOver) {
-            if (score > 0) {
-                setScore(score - 1);
+            if (scoreA > 0) {
+                setScoreA(scoreA - 1);
             }
         }
     };
@@ -95,6 +113,13 @@ const Game = () => {
             setGameStarted(false);
             setGameOver(true);
             setSquares(Array(4).fill(false));
+
+            if (scoreA / activeTime > bestscore) {
+                setBestscore(scoreA / activeTime);
+            }
+
+            setPreviousscore(scoreA / activeTime);
+
             setTimeRemaining(activeTime); // Réinitialise le compteur à la valeur activeTime
         }
     }, [activeTime, gameStarted, timeRemaining]);
@@ -105,62 +130,92 @@ const Game = () => {
         setIsVerticalLayout(!isVerticalLayout);
     };
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [isParamVisible, setIsParamVisible] = useState(false);
+
+    const displayP = () => {
+        setIsParamVisible(!isParamVisible);
+    };
+
     return (
         <>
-            <div>
-                {typesTime.map((type) => (
-                    <ButtonToggle
-                        active={activeTime === type}
-                        disabled={isDisabled}
-                        onClick={() => {
-                            setActiveTime(type);
-                            setTimeRemaining(type)
-                        }}>
-                        {type}
-                    </ButtonToggle>
-                ))}
-            </div>
+            <div className="w-screen flex justify-center">
+                <div>
+                    <div className="absolute left-40">
+                        <Button onClick={displayP}
+                                className="rounded-full whitespace-nowrap">
+                            <div className="flex justify-center gap-2">
+                                <Settings/>
+                                <p className="mt-[-.3rem]">Paramètre</p>
+                            </div>
+                        </Button>
+                        {isParamVisible &&
+                            <div className="">
+                                <h4 className='mt-[-.5rem]'>Temps en seconde</h4>
+                                <div className="mb-2">
+                                    {typesTime.map((type) => (
+                                        // eslint-disable-next-line react/jsx-key
+                                        <ButtonToggle
+                                            active={activeTime === type}
+                                            disabled={isDisabled}
+                                            onClick={() => {
+                                                setActiveTime(type);
+                                                setTimeRemaining(type)
+                                            }}>
+                                            {type}
+                                        </ButtonToggle>
+                                    ))}
+                                </div>
 
-            <div className="mt-[-1rem]">
-                <Button disabled={isDisabled} onClick={toggleLayout}>Changer la disposition</Button>
-            </div>
-
-            <div>
-                <button
-                    className="font-semibold transition hover:bg-amber-200 bg-amber-100 w-32 border-t-neutral-500 text-xl rounded-lg mb-5"
-                    onClick={startGame}>
-                    Jouer
-                </button>
-
-                <p>Score: {score}</p>
-                <p>Temps restant : {timeRemaining} secondes</p>
-
-                <div className={isVerticalLayout ? "absolute squareCenter flex-col" : "absolute squareCenter flex"}>
-                    <div className="flex">
-                        {squares.slice(0, 2).map((isGreen, index) => (
-                            <div
-                                key={index}
-                                className={`squarePlay mx-4 ${isGreen ? 'greenSquare' : 'redSquare'}`}
-                                id={index}
-                                onClick={() => handleSquareClick(index)}
-                            ></div>
-                        ))}
+                                <div className="mt-[-1rem]">
+                                    <Button disabled={isDisabled} onClick={toggleLayout}>Changer la
+                                        disposition</Button>
+                                </div>
+                            </div>
+                        }
                     </div>
-                    {isVerticalLayout && <br/>}
-                    <div className="flex">
-                        {squares.slice(2, 4).map((isGreen, index) => (
-                            <div
-                                key={index + 2}
-                                className={`squarePlay mx-4 ${isGreen ? 'greenSquare' : 'redSquare'}`}
-                                id={index + 2}
-                                onClick={() => handleSquareClick(index + 2)}
-                            ></div>
-                        ))}
+                    <div>
+                        <Button
+                            className="font-semibold w-32 border-t-neutral-500 text-xl rounded-lg"
+                            onClick={startGame}>
+                            Jouer
+                        </Button>
+
+                        <p>Temps restant : {timeRemaining} secondes</p>
+                        <p>Carré touché : {scoreA}</p>
+                        <p>Meilleur score <i>c/s</i> : {bestscore}</p>
+                        <p>Score précédent <i>c/s</i> : {previousscore}</p>
+
+                        <div
+                            className={isVerticalLayout ? "absolute squareCenter flex-col" : "absolute squareCenter flex"}>
+                            <div className="flex">
+                                {squares.slice(0, 2).map((isGreen, index) => (
+                                    <div
+                                        key={index}
+                                        className={`squarePlay mx-4 ${isGreen ? 'greenSquare' : 'redSquare'}`}
+                                        id={index}
+                                        onClick={() => handleSquareClick(index)}
+                                    ></div>
+                                ))}
+                            </div>
+                            {isVerticalLayout && <br/>}
+                            <div className="flex">
+                                {squares.slice(2, 4).map((isGreen, index) => (
+                                    <div
+                                        key={index + 2}
+                                        className={`squarePlay mx-4 ${isGreen ? 'greenSquare' : 'redSquare'}`}
+                                        id={index + 2}
+                                        onClick={() => handleSquareClick(index + 2)}
+                                    ></div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </>
-    );
+    )
+        ;
 };
 
 export default Game;
