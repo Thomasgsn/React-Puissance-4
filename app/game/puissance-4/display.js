@@ -74,7 +74,7 @@ function DisplayP() {
                     <div>
                         {typesTab.map((type) => <ButtonToggle active={activeTab === type}
                                                               onClick={() => handleSetActiveTab(type)}
-                                                              ref={buttonToggleRef}>
+                                                              ref={ButtonToggle}>
                             {type}
                         </ButtonToggle>)}
                     </div>

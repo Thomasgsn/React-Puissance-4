@@ -40,6 +40,7 @@ const Game = () => {
     const [lastClickedSquare, setLastClickedSquare] = useState(null);
     const [timeRemaining, setTimeRemaining] = useState(activeTime);
     const [gameOver, setGameOver] = useState(false);
+    const [isDisabled, setDisabled] = useState(false)
 
     const getRandomSquare = () => Math.floor(Math.random() * 4);
 
@@ -52,6 +53,7 @@ const Game = () => {
     };
 
     const startGame = () => {
+        setDisabled(true);
         setGameStarted(true);
         setGameOver(false);
         setTimeRemaining(activeTime);
@@ -89,6 +91,7 @@ const Game = () => {
             }, 1000);
             return () => clearInterval(timer);
         } else if (timeRemaining <= 0) {
+            setDisabled(false);
             setGameStarted(false);
             setGameOver(true);
             setSquares(Array(4).fill(false));
@@ -108,6 +111,7 @@ const Game = () => {
                 {typesTime.map((type) => (
                     <ButtonToggle
                         active={activeTime === type}
+                        disabled={isDisabled}
                         onClick={() => {
                             setActiveTime(type);
                             setTimeRemaining(type)
@@ -118,7 +122,7 @@ const Game = () => {
             </div>
 
             <div className="mt-[-1rem]">
-                <Button onClick={toggleLayout}>Changer la disposition</Button>
+                <Button disabled={isDisabled} onClick={toggleLayout}>Changer la disposition</Button>
             </div>
 
             <div>
