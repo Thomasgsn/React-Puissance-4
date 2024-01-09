@@ -40,7 +40,6 @@ export default function Home() {
                                 </span>
                             </h2>
                             <p className={`text-sm m-0 max-w-[30ch] opacity-50`}>
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 Aligner 4 pions horizontalement, verticalement ou en diagonale.
                             </p>
                             <div className="flex justify-center mt-7 mb-3 img-jeu">
@@ -63,7 +62,6 @@ export default function Home() {
                                 </span>
                             </h2>
                             <p className={`text-sm p m-0 max-w-[30ch] opacity-50`}>
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 Aligner 3 pions horizontalement, verticalement ou en diagonale.
                             </p>
                             <div className="flex justify-center mt-7 mb-3 img-jeu">
@@ -106,7 +104,6 @@ export default function Home() {
                                 </span>
                             </h2>
                             <p className={`text-sm p m-0 max-w-[30ch] opacity-50`}>
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 Détruire toutes les briques grâce à la balle rebondissante.
                             </p>
                             <div className="flex justify-center mt-7 mb-3 img-jeu">
@@ -129,7 +126,7 @@ export default function Home() {
                             </h2>
                             <p className={`text-sm m-0 max-w-[30ch] opacity-50`}>
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                Clique le plus rapidement sur le carré qui s'allume.
+                                Cliquer le plus rapidement sur le carré qui s'allume.
                             </p>
                             <div className="flex justify-center mt-7 mb-3 img-jeu">
                                 <Image
