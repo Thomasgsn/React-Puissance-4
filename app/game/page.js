@@ -7,7 +7,7 @@ import React from "react";
 
 const GameSelector = styled.div`
   color: aqua;
-  background-color: #f57e7e;
+  background-color: #1b363f;
   text-align: left;
   padding: 1.25rem 1rem;
   width: 17rem;

@@ -1,46 +1,8 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import {Settings} from 'lucide-react';
-import styled from 'styled-components';
-import Display from "../puissance-4/display";
-
-const Button = styled.button`
-  background-color: #f57e7e;
-  font-size: 20px;
-  color: white;
-  padding: 5px 15px;
-  outline: 0;
-  margin: 20px 10px 10px 0;
-  cursor: pointer;
-  transition: all .3s cubic-bezier(0, 0.59, 0.33, 0.87);
-
-  &:hover {
-    opacity: 0.8;
-    background-color: #2f5e6d;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 01);
-    box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
-  }
-
-  &:disabled {
-    cursor: default;
-    opacity: 0.3;
-  }
-
-  &:disabled:hover {
-    cursor: not-allowed;
-    background-color: #be1717;
-    opacity: 0.3;
-  }
-`;
-
-const ButtonToggle = styled(Button)`
-  transition: all 0.3s;
-  opacity: 0.3;
-  ${({active}) => active && `
-    opacity: 1; 
-  `}
-`;
+import Button from "../../components/buttons/button";
+import ButtonToggle from "../../components/buttons/buttonToggle";
 
 const Game = () => {
     const typesTime = [5, 10, 15, 20];
@@ -70,18 +32,18 @@ const Game = () => {
     };
 
     const startGame = () => {
-        setDisabled(true);
-        setGameStarted(true);
-        setGameOver(false);
-        setTimeRemaining(activeTime);
+            setDisabled(true);
+            setGameOver(false);
+            setGameStarted(true);
+            setTimeRemaining(activeTime);
 
-        const randomIndex = getRandomSquare();
-        const newSquares = Array(4).fill(false);
-        newSquares[randomIndex] = true;
-        setSquares(newSquares);
+            const randomIndex = getRandomSquare();
+            const newSquares = Array(4).fill(false);
+            newSquares[randomIndex] = true;
+            setSquares(newSquares);
 
-        setScoreA(0); // Réinitialise le score actuel
-        setLastClickedSquare(randomIndex);
+            setScoreA(0); // Réinitialise le score actuel
+            setLastClickedSquare(randomIndex);
     };
 
     const handleSquareClick = (index) => {
@@ -157,7 +119,6 @@ const Game = () => {
                                         // eslint-disable-next-line react/jsx-key
                                         <ButtonToggle
                                             active={activeTime === type}
-                                            disabled={isDisabled}
                                             onClick={() => {
                                                 setActiveTime(type);
                                                 setTimeRemaining(type)
@@ -176,6 +137,7 @@ const Game = () => {
                     </div>
                     <div>
                         <Button
+                            disabled={true}
                             className="font-semibold w-32 border-t-neutral-500 text-xl rounded-lg"
                             onClick={startGame}>
                             Jouer

@@ -6,6 +6,7 @@ const handleClick = (event) => {
 
 function click() {
     let l = this.getAttribute("id");
+    let player;
     console.log(l);
     let k = ligne - 1;
     while (k > -1) {
@@ -51,7 +52,7 @@ export const Quatre_cinq = () => {
     const lignes = ['1', '2', '3', '4', '5'];
 
     return (
-        <table className="scale tableau" id="6x7">
+        <table className="scale tableau" id="4x5">
             {colonnes.map(colonne => (
                 <tr className="border border-neutral-700 h-24">
                     {lignes.map(ligne => (
@@ -62,4 +63,3 @@ export const Quatre_cinq = () => {
         </table>
     );
 }
-
